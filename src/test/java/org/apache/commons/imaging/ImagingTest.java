@@ -57,7 +57,7 @@ class ImagingTest extends TestCase{
 			System.out.println("fail");
 		}
 		
-		String ur2 = "images\\2-1.jpg";
+		String ur2 = "images\\2-1.PNG";
 		File file2 = new File(ur2);
 		try {
 			assertEquals(ImageFormats.PNG,Imaging.guessFormat(file2));
