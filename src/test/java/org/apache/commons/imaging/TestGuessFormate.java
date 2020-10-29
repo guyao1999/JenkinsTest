@@ -31,6 +31,8 @@ class TestGuessFormate {
 		String url = "images\\Zoro.jpeg";
 		File file1 = new File(url);
 		
+		
+		/*
 		mock(MyImaging.class);
 		//mock(Imaging.class);
 		
@@ -67,7 +69,7 @@ class TestGuessFormate {
 //		} catch (IOException e) {
 //			e.printStackTrace();
 //			System.out.println("fail");
-//		}
+//		}*/
 	}
 
 }
