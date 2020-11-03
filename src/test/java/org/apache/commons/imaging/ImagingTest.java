@@ -20,9 +20,9 @@ import junit.framework.TestCase;
  * Class org.apache.commons.imaging.ImagingTest has 
  *no public constructor TestCase(String name) or TestCase()
  *
- * 
+ * extends TestCase
  * */
-class ImagingTest extends TestCase{
+class ImagingTest {
 
 	@BeforeEach
 	protected
