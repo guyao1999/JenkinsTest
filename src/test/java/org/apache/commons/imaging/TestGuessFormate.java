@@ -32,8 +32,8 @@ class TestGuessFormate {
 		File file1 = new File(url);
 		
 		
-		/*
-		mock(MyImaging.class);
+		
+		MyImaging myimaging = mock(MyImaging.class);
 		//mock(Imaging.class);
 		
 		
@@ -41,7 +41,9 @@ class TestGuessFormate {
 		try {
 			
 		//在这里使用桩模块出现问题	
-		when(MyImaging.guessFormat(byteSource)).thenReturn(ImageFormats.JPEG);
+	    //？？？？
+		//	
+		when(myimaging.guessFormat(byteSource)).thenReturn(ImageFormats.JPEG);
 		//when(Imaging.guessFormat(byteSource)).thenReturn(ImageFormats.JPEG);
 		} catch (ImageReadException e1) {
 			e1.printStackTrace();
@@ -69,7 +71,7 @@ class TestGuessFormate {
 //		} catch (IOException e) {
 //			e.printStackTrace();
 //			System.out.println("fail");
-//		}*/
+//		}
 	}
 
 }

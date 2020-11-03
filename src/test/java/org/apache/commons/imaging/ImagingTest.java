@@ -15,6 +15,13 @@ import junit.framework.TestCase;
 /*
  *   该类用于对Imaging类的方法进行单元测试
 */
+
+/*
+ * Class org.apache.commons.imaging.ImagingTest has 
+ *no public constructor TestCase(String name) or TestCase()
+ *
+ * 
+ * */
 class ImagingTest extends TestCase{
 
 	@BeforeEach
