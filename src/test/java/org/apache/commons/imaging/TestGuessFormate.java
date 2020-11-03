@@ -13,7 +13,7 @@ import org.apache.commons.imaging.common.bytesource.ByteSourceFile;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import static org.mockito.Mockito.spy;
 
 
 class TestGuessFormate {
@@ -32,19 +32,20 @@ class TestGuessFormate {
 		File file1 = new File(url);
 		
 		
+		//使用spy只虚拟对象的某一个方法，其它的方法依旧可以按照原来的方式执行
+		MyImaging myimaging = spy(MyImaging.class);
 		
-		MyImaging myimaging = mock(MyImaging.class);
 		//mock(Imaging.class);
 		
 		
 		ByteSource byteSource=new ByteSourceFile(file1);
+		
+		
 		try {
 			
 		//在这里使用桩模块出现问题	
-	    //？？？？
 		//	
 		when(myimaging.guessFormat(byteSource)).thenReturn(ImageFormats.JPEG);
-		//when(Imaging.guessFormat(byteSource)).thenReturn(ImageFormats.JPEG);
 		} catch (ImageReadException e1) {
 			e1.printStackTrace();
 		} catch (IOException e1) {
@@ -52,7 +53,9 @@ class TestGuessFormate {
 		}
 		
 		try {
-			assertEquals(ImageFormats.JPEG,MyImaging.guessFormat(file1));
+			assertEquals(ImageFormats.JPEG,myimaging.guessFormat(file1));
+			//assertEquals(null,myimaging.guessFormat(file1));
+			
 		} catch (ImageReadException e) {
 			e.printStackTrace();
 			System.out.println("fail");

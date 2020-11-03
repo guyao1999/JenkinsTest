@@ -16,9 +16,6 @@
  */
 package org.apache.commons.imaging;
 
-import static org.apache.commons.imaging.ImagingConstants.PARAM_KEY_FILENAME;
-import static org.apache.commons.imaging.ImagingConstants.PARAM_KEY_FORMAT;
-
 import java.awt.Dimension;
 import java.awt.color.ICC_Profile;
 import java.awt.image.BufferedImage;
@@ -64,7 +61,7 @@ import org.apache.commons.imaging.icc.IccProfileParser;
  * </p>
  *
  * <p>
- * All of methods provided by the Imaging class are declared static.
+ * All of methods provided by the Imaging class are declared .
  * </p>
  *
  * <p>
@@ -118,25 +115,25 @@ import org.apache.commons.imaging.icc.IccProfileParser;
  */
 public class MyImaging {
 
-    public static  int[] MAGIC_NUMBERS_GIF = { 0x47, 0x49, };
-    public static  int[] MAGIC_NUMBERS_PNG = { 0x89, 0x50, };
-    public static  int[] MAGIC_NUMBERS_JPEG = { 0xff, 0xd8, };
-    public static  int[] MAGIC_NUMBERS_BMP = { 0x42, 0x4d, };
-    public static  int[] MAGIC_NUMBERS_TIFF_MOTOROLA = { 0x4D, 0x4D, };
-    public static  int[] MAGIC_NUMBERS_TIFF_INTEL = { 0x49, 0x49, };
-    public static  int[] MAGIC_NUMBERS_PAM = { 0x50, 0x37, };
-    public static  int[] MAGIC_NUMBERS_PSD = { 0x38, 0x42, };
-    public static  int[] MAGIC_NUMBERS_PBM_A = { 0x50, 0x31, };
-    public static  int[] MAGIC_NUMBERS_PBM_B = { 0x50, 0x34, };
-    public static  int[] MAGIC_NUMBERS_PGM_A = { 0x50, 0x32, };
-    public static  int[] MAGIC_NUMBERS_PGM_B = { 0x50, 0x35, };
-    public static  int[] MAGIC_NUMBERS_PPM_A = { 0x50, 0x33, };
-    public static  int[] MAGIC_NUMBERS_PPM_B = { 0x50, 0x36, };
-    public static  int[] MAGIC_NUMBERS_JBIG2_1 = { 0x97, 0x4A, };
-    public static  int[] MAGIC_NUMBERS_JBIG2_2 = { 0x42, 0x32, };
-    public static  int[] MAGIC_NUMBERS_ICNS = { 0x69, 0x63, };
-    public static  int[] MAGIC_NUMBERS_DCX = { 0xB1, 0x68, };
-    public static  int[] MAGIC_NUMBERS_RGBE = { 0x23, 0x3F, };
+    public   int[] MAGIC_NUMBERS_GIF = { 0x47, 0x49, };
+    public   int[] MAGIC_NUMBERS_PNG = { 0x89, 0x50, };
+    public   int[] MAGIC_NUMBERS_JPEG = { 0xff, 0xd8, };
+    public   int[] MAGIC_NUMBERS_BMP = { 0x42, 0x4d, };
+    public   int[] MAGIC_NUMBERS_TIFF_MOTOROLA = { 0x4D, 0x4D, };
+    public   int[] MAGIC_NUMBERS_TIFF_INTEL = { 0x49, 0x49, };
+    public   int[] MAGIC_NUMBERS_PAM = { 0x50, 0x37, };
+    public   int[] MAGIC_NUMBERS_PSD = { 0x38, 0x42, };
+    public   int[] MAGIC_NUMBERS_PBM_A = { 0x50, 0x31, };
+    public   int[] MAGIC_NUMBERS_PBM_B = { 0x50, 0x34, };
+    public   int[] MAGIC_NUMBERS_PGM_A = { 0x50, 0x32, };
+    public   int[] MAGIC_NUMBERS_PGM_B = { 0x50, 0x35, };
+    public   int[] MAGIC_NUMBERS_PPM_A = { 0x50, 0x33, };
+    public   int[] MAGIC_NUMBERS_PPM_B = { 0x50, 0x36, };
+    public   int[] MAGIC_NUMBERS_JBIG2_1 = { 0x97, 0x4A, };
+    public   int[] MAGIC_NUMBERS_JBIG2_2 = { 0x42, 0x32, };
+    public   int[] MAGIC_NUMBERS_ICNS = { 0x69, 0x63, };
+    public   int[] MAGIC_NUMBERS_DCX = { 0xB1, 0x68, };
+    public   int[] MAGIC_NUMBERS_RGBE = { 0x23, 0x3F, };
 
     public MyImaging() {
         // Instances can not be created
@@ -152,7 +149,7 @@ public class MyImaging {
      * @return true if the file-name includes a supported image
      * format file extension; otherwise, false.
      */
-    public static boolean hasImageFileExtension( File file) {
+    public  boolean hasImageFileExtension( File file) {
         if (file == null || !file.isFile()) {
             return false;
         }
@@ -168,7 +165,7 @@ public class MyImaging {
      * which may contain an image.
      * @return true if the file name has an image format file extension.
      */
-    public static boolean hasImageFileExtension( String fileName) {
+    public  boolean hasImageFileExtension( String fileName) {
         if (fileName == null) {
             return false;
         }
@@ -202,7 +199,7 @@ public class MyImaging {
      *         attempt to read the image data
      * @throws IOException in the event of an unrecoverable I/O condition.
      */
-    public static ImageFormat guessFormat( byte[] bytes)
+    public  ImageFormat guessFormat( byte[] bytes)
             throws ImageReadException, IOException {
         return guessFormat(new ByteSourceArray(bytes));
     }
@@ -225,12 +222,12 @@ public class MyImaging {
      *         attempt to read the image data
      * @throws IOException in the event of an unrecoverable I/O condition.
      */
-    public static ImageFormat guessFormat( File file) throws ImageReadException,
+    public  ImageFormat guessFormat( File file) throws ImageReadException,
             IOException {
         return guessFormat(new ByteSourceFile(file));
     }
 
-    public static boolean compareBytePair( int[] a,  int[] b) {
+    public  boolean compareBytePair( int[] a,  int[] b) {
         if (a.length != 2 && b.length != 2) {
             throw new RuntimeException("Invalid Byte Pair.");
         }
@@ -257,7 +254,7 @@ public class MyImaging {
      * attempt to read the image data
      * @throws IOException in the event of an unrecoverable I/O condition.
      */
-    public static ImageFormat guessFormat( ByteSource byteSource)
+    public  ImageFormat guessFormat( ByteSource byteSource)
             throws ImageReadException, IOException {
 
         if (byteSource == null) {
@@ -343,7 +340,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static ICC_Profile getICCProfile( byte[] bytes)
+    public  ICC_Profile getICCProfile( byte[] bytes)
             throws ImageReadException, IOException {
         return getICCProfile(bytes, null);
     }
@@ -361,7 +358,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static ICC_Profile getICCProfile( byte[] bytes,  Map<String, Object> params)
+    public  ICC_Profile getICCProfile( byte[] bytes,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getICCProfile(new ByteSourceArray(bytes), params);
     }
@@ -379,7 +376,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static ICC_Profile getICCProfile( InputStream is,  String fileName)
+    public  ICC_Profile getICCProfile( InputStream is,  String fileName)
             throws ImageReadException, IOException {
         return getICCProfile(is, fileName, null);
     }
@@ -399,7 +396,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static ICC_Profile getICCProfile( InputStream is,  String fileName,
+    public  ICC_Profile getICCProfile( InputStream is,  String fileName,
              Map<String, Object> params) throws ImageReadException, IOException {
         return getICCProfile(new ByteSourceInputStream(is, fileName), params);
     }
@@ -415,7 +412,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static ICC_Profile getICCProfile( File file)
+    public  ICC_Profile getICCProfile( File file)
             throws ImageReadException, IOException {
         return getICCProfile(file, null);
     }
@@ -433,12 +430,12 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static ICC_Profile getICCProfile( File file,  Map<String, Object> params)
+    public  ICC_Profile getICCProfile( File file,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getICCProfile(new ByteSourceFile(file), params);
     }
 
-    public static ICC_Profile getICCProfile( ByteSource byteSource,  Map<String, Object> params)
+    public  ICC_Profile getICCProfile( ByteSource byteSource,  Map<String, Object> params)
             throws ImageReadException, IOException {
          byte[] bytes = getICCProfileBytes(byteSource, params);
         if (bytes == null) {
@@ -472,7 +469,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static byte[] getICCProfileBytes( byte[] bytes)
+    public  byte[] getICCProfileBytes( byte[] bytes)
             throws ImageReadException, IOException {
         return getICCProfileBytes(bytes, null);
     }
@@ -494,7 +491,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static byte[] getICCProfileBytes( byte[] bytes,  Map<String, Object> params)
+    public  byte[] getICCProfileBytes( byte[] bytes,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getICCProfileBytes(new ByteSourceArray(bytes), params);
     }
@@ -514,7 +511,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static byte[] getICCProfileBytes( File file)
+    public  byte[] getICCProfileBytes( File file)
             throws ImageReadException, IOException {
         return getICCProfileBytes(file, null);
     }
@@ -536,12 +533,12 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static byte[] getICCProfileBytes( File file,  Map<String, Object> params)
+    public  byte[] getICCProfileBytes( File file,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getICCProfileBytes(new ByteSourceFile(file), params);
     }
 
-    private static byte[] getICCProfileBytes( ByteSource byteSource,  Map<String, Object> params)
+    private  byte[] getICCProfileBytes( ByteSource byteSource,  Map<String, Object> params)
             throws ImageReadException, IOException {
          ImageParser imageParser = getImageParser(byteSource);
 
@@ -567,7 +564,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static ImageInfo getImageInfo( String fileName,  byte[] bytes,
+    public  ImageInfo getImageInfo( String fileName,  byte[] bytes,
              Map<String, Object> params) throws ImageReadException, IOException {
         return getImageInfo(new ByteSourceArray(fileName, bytes), params);
     }
@@ -589,7 +586,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static ImageInfo getImageInfo( String fileName,  byte[] bytes)
+    public  ImageInfo getImageInfo( String fileName,  byte[] bytes)
             throws ImageReadException, IOException {
         return getImageInfo(new ByteSourceArray(fileName, bytes), null);
     }
@@ -611,7 +608,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static ImageInfo getImageInfo( InputStream is,  String fileName)
+    public  ImageInfo getImageInfo( InputStream is,  String fileName)
             throws ImageReadException, IOException {
         return getImageInfo(new ByteSourceInputStream(is, fileName), null);
     }
@@ -635,7 +632,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static ImageInfo getImageInfo( InputStream is,  String fileName,
+    public  ImageInfo getImageInfo( InputStream is,  String fileName,
              Map<String, Object> params) throws ImageReadException, IOException {
         return getImageInfo(new ByteSourceInputStream(is, fileName), params);
     }
@@ -655,7 +652,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static ImageInfo getImageInfo( byte[] bytes)
+    public  ImageInfo getImageInfo( byte[] bytes)
             throws ImageReadException, IOException {
         return getImageInfo(new ByteSourceArray(bytes), null);
     }
@@ -677,7 +674,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static ImageInfo getImageInfo( byte[] bytes,  Map<String, Object> params)
+    public  ImageInfo getImageInfo( byte[] bytes,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getImageInfo(new ByteSourceArray(bytes), params);
     }
@@ -699,7 +696,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static ImageInfo getImageInfo( File file,  Map<String, Object> params)
+    public  ImageInfo getImageInfo( File file,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getImageInfo(new ByteSourceFile(file), params);
     }
@@ -719,17 +716,17 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static ImageInfo getImageInfo( File file) throws ImageReadException,
+    public  ImageInfo getImageInfo( File file) throws ImageReadException,
             IOException {
         return getImageInfo(file, null);
     }
 
-    private static ImageInfo getImageInfo( ByteSource byteSource,  Map<String, Object> params)
+    private  ImageInfo getImageInfo( ByteSource byteSource,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getImageParser(byteSource).getImageInfo(byteSource, params);
     }
 
-    private static ImageParser getImageParser( ByteSource byteSource)
+    private  ImageParser getImageParser( ByteSource byteSource)
             throws ImageReadException, IOException {
          ImageFormat format = guessFormat(byteSource);
         if (!format.equals(ImageFormats.UNKNOWN)) {
@@ -769,7 +766,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static Dimension getImageSize( InputStream is,  String fileName)
+    public  Dimension getImageSize( InputStream is,  String fileName)
             throws ImageReadException, IOException {
         return getImageSize(is, fileName, null);
     }
@@ -788,7 +785,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static Dimension getImageSize( InputStream is,  String fileName,
+    public  Dimension getImageSize( InputStream is,  String fileName,
              Map<String, Object> params) throws ImageReadException, IOException {
         return getImageSize(new ByteSourceInputStream(is, fileName), params);
     }
@@ -803,7 +800,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static Dimension getImageSize( byte[] bytes)
+    public  Dimension getImageSize( byte[] bytes)
             throws ImageReadException, IOException {
         return getImageSize(bytes, null);
     }
@@ -820,7 +817,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static Dimension getImageSize( byte[] bytes,  Map<String, Object> params)
+    public  Dimension getImageSize( byte[] bytes,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getImageSize(new ByteSourceArray(bytes), params);
     }
@@ -835,7 +832,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static Dimension getImageSize( File file) throws ImageReadException,
+    public  Dimension getImageSize( File file) throws ImageReadException,
             IOException {
         return getImageSize(file, null);
     }
@@ -852,12 +849,12 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static Dimension getImageSize( File file,  Map<String, Object> params)
+    public  Dimension getImageSize( File file,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getImageSize(new ByteSourceFile(file), params);
     }
 
-    public static Dimension getImageSize( ByteSource byteSource,  Map<String, Object> params)
+    public  Dimension getImageSize( ByteSource byteSource,  Map<String, Object> params)
             throws ImageReadException, IOException {
          ImageParser imageParser = getImageParser(byteSource);
 
@@ -876,7 +873,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static String getXmpXml( InputStream is,  String fileName)
+    public  String getXmpXml( InputStream is,  String fileName)
             throws ImageReadException, IOException {
         return getXmpXml(is, fileName, null);
     }
@@ -895,7 +892,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static String getXmpXml( InputStream is,  String fileName,  Map<String, Object> params)
+    public  String getXmpXml( InputStream is,  String fileName,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getXmpXml(new ByteSourceInputStream(is, fileName), params);
     }
@@ -910,7 +907,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static String getXmpXml( byte[] bytes) throws ImageReadException,
+    public  String getXmpXml( byte[] bytes) throws ImageReadException,
             IOException {
         return getXmpXml(bytes, null);
     }
@@ -927,7 +924,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static String getXmpXml( byte[] bytes,  Map<String, Object> params)
+    public  String getXmpXml( byte[] bytes,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getXmpXml(new ByteSourceArray(bytes), params);
     }
@@ -942,7 +939,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static String getXmpXml( File file) throws ImageReadException,
+    public  String getXmpXml( File file) throws ImageReadException,
             IOException {
         return getXmpXml(file, null);
     }
@@ -959,7 +956,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static String getXmpXml( File file,  Map<String, Object> params)
+    public  String getXmpXml( File file,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getXmpXml(new ByteSourceFile(file), params);
     }
@@ -976,7 +973,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to parse the image
      * @throws IOException if it fails to read the image data
      */
-    public static String getXmpXml( ByteSource byteSource,  Map<String, Object> params)
+    public  String getXmpXml( ByteSource byteSource,  Map<String, Object> params)
             throws ImageReadException, IOException {
          ImageParser imageParser = getImageParser(byteSource);
         if (imageParser instanceof XmpEmbeddable) {
@@ -1005,7 +1002,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to read the image metadata
      * @throws IOException if it fails to read the image data
      */
-    public static ImageMetadata getMetadata( byte[] bytes)
+    public  ImageMetadata getMetadata( byte[] bytes)
             throws ImageReadException, IOException {
         return getMetadata(bytes, null);
     }
@@ -1032,7 +1029,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to read the image metadata
      * @throws IOException if it fails to read the image data
      */
-    public static ImageMetadata getMetadata( byte[] bytes,  Map<String, Object> params)
+    public  ImageMetadata getMetadata( byte[] bytes,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getMetadata(new ByteSourceArray(bytes), params);
     }
@@ -1059,7 +1056,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to read the image metadata
      * @throws IOException if it fails to read the image data
      */
-    public static ImageMetadata getMetadata( InputStream is,  String fileName)
+    public  ImageMetadata getMetadata( InputStream is,  String fileName)
             throws ImageReadException, IOException {
         return getMetadata(is, fileName, null);
     }
@@ -1088,7 +1085,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to read the image metadata
      * @throws IOException if it fails to read the image data
      */
-    public static ImageMetadata getMetadata( InputStream is,  String fileName,
+    public  ImageMetadata getMetadata( InputStream is,  String fileName,
              Map<String, Object> params) throws ImageReadException, IOException {
         return getMetadata(new ByteSourceInputStream(is, fileName), params);
     }
@@ -1113,7 +1110,7 @@ public class MyImaging {
      * @throws ImageReadException if it fails to read the image metadata
      * @throws IOException if it fails to read the image data
      */
-    public static ImageMetadata getMetadata( File file)
+    public  ImageMetadata getMetadata( File file)
             throws ImageReadException, IOException {
         return getMetadata(file, null);
     }
@@ -1140,12 +1137,12 @@ public class MyImaging {
      * @throws ImageReadException if it fails to read the image metadata
      * @throws IOException if it fails to read the image data
      */
-    public static ImageMetadata getMetadata( File file,  Map<String, Object> params)
+    public  ImageMetadata getMetadata( File file,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getMetadata(new ByteSourceFile(file), params);
     }
 
-    private static ImageMetadata getMetadata( ByteSource byteSource,  Map<String, Object> params)
+    private  ImageMetadata getMetadata( ByteSource byteSource,  Map<String, Object> params)
             throws ImageReadException, IOException {
          ImageParser imageParser = getImageParser(byteSource);
 
@@ -1163,7 +1160,7 @@ public class MyImaging {
      * @throws IOException In the event of unsuccessful read or
      * access operation.
      */
-    public static String dumpImageFile( byte[] bytes) throws ImageReadException,
+    public  String dumpImageFile( byte[] bytes) throws ImageReadException,
             IOException {
         return dumpImageFile(new ByteSourceArray(bytes));
     }
@@ -1179,12 +1176,12 @@ public class MyImaging {
      * @throws IOException In the event of unsuccessful read or
      * access operation.
      */
-    public static String dumpImageFile( File file) throws ImageReadException,
+    public  String dumpImageFile( File file) throws ImageReadException,
             IOException {
         return dumpImageFile(new ByteSourceFile(file));
     }
 
-    private static String dumpImageFile( ByteSource byteSource)
+    private  String dumpImageFile( ByteSource byteSource)
             throws ImageReadException, IOException {
          ImageParser imageParser = getImageParser(byteSource);
 
@@ -1201,7 +1198,7 @@ public class MyImaging {
      * @throws ImageReadException in the event of unreadable data.
      * @throws IOException in the event of an unrecoverable I/O condition.
      */
-    public static FormatCompliance getFormatCompliance( byte[] bytes)
+    public  FormatCompliance getFormatCompliance( byte[] bytes)
             throws ImageReadException, IOException {
         return getFormatCompliance(new ByteSourceArray(bytes));
     }
@@ -1216,12 +1213,12 @@ public class MyImaging {
      * @throws ImageReadException in the event of unreadable data.
      * @throws IOException in the event of an unrecoverable I/O condition.
      */
-    public static FormatCompliance getFormatCompliance( File file)
+    public  FormatCompliance getFormatCompliance( File file)
             throws ImageReadException, IOException {
         return getFormatCompliance(new ByteSourceFile(file));
     }
 
-    private static FormatCompliance getFormatCompliance( ByteSource byteSource)
+    private  FormatCompliance getFormatCompliance( ByteSource byteSource)
             throws ImageReadException, IOException {
          ImageParser imageParser = getImageParser(byteSource);
 
@@ -1240,7 +1237,7 @@ public class MyImaging {
      * @throws IOException In the event of unsuccessful read or
      * access operation.
      */
-    public static List<BufferedImage> getAllBufferedImages( InputStream is,
+    public  List<BufferedImage> getAllBufferedImages( InputStream is,
              String fileName) throws ImageReadException, IOException {
         return getAllBufferedImages(new ByteSourceInputStream(is, fileName));
     }
@@ -1256,7 +1253,7 @@ public class MyImaging {
      * @throws IOException In the event of unsuccessful read or
      * access operation.
      */
-    public static List<BufferedImage> getAllBufferedImages( byte[] bytes)
+    public  List<BufferedImage> getAllBufferedImages( byte[] bytes)
             throws ImageReadException, IOException {
         return getAllBufferedImages(new ByteSourceArray(bytes));
     }
@@ -1272,13 +1269,13 @@ public class MyImaging {
      * @throws IOException In the event of unsuccessful read or
      * access operation.
      */
-    public static List<BufferedImage> getAllBufferedImages( File file)
+    public  List<BufferedImage> getAllBufferedImages( File file)
             throws ImageReadException, IOException {
         return getAllBufferedImages(new ByteSourceFile(file));
     }
 
 
-    private static List<BufferedImage> getAllBufferedImages(
+    private  List<BufferedImage> getAllBufferedImages(
              ByteSource byteSource) throws ImageReadException, IOException {
          ImageParser imageParser = getImageParser(byteSource);
 
@@ -1302,11 +1299,12 @@ public class MyImaging {
      * @throws IOException  in the event of an unrecoverable I/O exception.
      */
 
-    public static BufferedImage getBufferedImage( InputStream is)
+    /*
+    public  BufferedImage getBufferedImage( InputStream is)
             throws ImageReadException, IOException {
         return getBufferedImage(is, null);
     }
-
+    */
 
 
     /**
@@ -1329,7 +1327,9 @@ public class MyImaging {
      * while reading an image (i.e. a format violation, etc.).
      * @throws IOException  in the event of an unrecoverable I/O exception.
      */
-    public static BufferedImage getBufferedImage( InputStream is,  Map<String, Object> params)
+    
+    /*
+    public  BufferedImage getBufferedImage( InputStream is,  Map<String, Object> params)
             throws ImageReadException, IOException {
         String fileName = null;
         if (params != null && params.containsKey(PARAM_KEY_FILENAME)) {
@@ -1337,6 +1337,7 @@ public class MyImaging {
         }
         return getBufferedImage(new ByteSourceInputStream(is, fileName), params);
     }
+    */
 
     /**
      * Reads the first image from a byte array.
@@ -1353,7 +1354,7 @@ public class MyImaging {
      * while reading an image (i.e. a format violation, etc.).
      * @throws IOException  in the event of an unrecoverable I/O exception.
      */
-    public static BufferedImage getBufferedImage( byte[] bytes)
+    public  BufferedImage getBufferedImage( byte[] bytes)
             throws ImageReadException, IOException {
         return getBufferedImage(new ByteSourceArray(bytes), null);
     }
@@ -1379,7 +1380,7 @@ public class MyImaging {
      * while reading an image (i.e. a format violation, etc.).
      * @throws IOException  in the event of an unrecoverable I/O exception.
      */
-    public static BufferedImage getBufferedImage( byte[] bytes,  Map<String, Object> params)
+    public  BufferedImage getBufferedImage( byte[] bytes,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getBufferedImage(new ByteSourceArray(bytes), params);
     }
@@ -1402,7 +1403,7 @@ public class MyImaging {
      * while reading an image (i.e. a format violation, etc.).
      * @throws IOException  in the event of an unrecoverable I/O exception.
      */
-    public static BufferedImage getBufferedImage( File file)
+    public  BufferedImage getBufferedImage( File file)
             throws ImageReadException, IOException {
         return getBufferedImage(new ByteSourceFile(file), null);
     }
@@ -1428,14 +1429,14 @@ public class MyImaging {
      * while reading an image (i.e. a format violation, etc.).
      * @throws IOException  in the event of an unrecoverable I/O exception.
      */
-    public static BufferedImage getBufferedImage( File file,  Map<String, Object> params)
+    public  BufferedImage getBufferedImage( File file,  Map<String, Object> params)
             throws ImageReadException, IOException {
         return getBufferedImage(new ByteSourceFile(file), params);
     }
 
 
 
-    private static BufferedImage getBufferedImage( ByteSource byteSource,
+    private  BufferedImage getBufferedImage( ByteSource byteSource,
             Map<String, Object> params) throws ImageReadException, IOException {
          ImageParser imageParser = getImageParser(byteSource);
         if (null == params) {
@@ -1468,7 +1469,8 @@ public class MyImaging {
      * @throws IOException in the event of an unrecoverable I/O exception.
      * @see ImagingConstants
      */
-    public static void writeImage( BufferedImage src,  File file,
+    /*
+    public  void writeImage( BufferedImage src,  File file,
              ImageFormat format,  Map<String, Object> params) throws ImageWriteException,
             IOException {
         try (FileOutputStream fos = new FileOutputStream(file);
@@ -1476,6 +1478,7 @@ public class MyImaging {
             writeImage(src, os, format, params);
         }
     }
+    */
 
 
     /**
@@ -1501,7 +1504,8 @@ public class MyImaging {
      * @throws IOException in the event of an unrecoverable I/O exception.
      * @see ImagingConstants
      */
-    public static byte[] writeImageToBytes( BufferedImage src,
+    /*
+    public  byte[] writeImageToBytes( BufferedImage src,
              ImageFormat format,  Map<String, Object> params) throws ImageWriteException,
             IOException {
          ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -1510,6 +1514,7 @@ public class MyImaging {
 
         return os.toByteArray();
     }
+    */
 
 
      /**
@@ -1535,7 +1540,9 @@ public class MyImaging {
      * @throws IOException in the event of an unrecoverable I/O exception.
      * @see ImagingConstants
      */
-    public static void writeImage( BufferedImage src,  OutputStream os,
+    
+    /*
+    public  void writeImage( BufferedImage src,  OutputStream os,
              ImageFormat format, Map<String, Object> params) throws ImageWriteException,
             IOException {
          ImageParser[] imageParsers = ImageParser.getAllImageParsers();
@@ -1559,6 +1566,6 @@ public class MyImaging {
         } else {
             throw new ImageWriteException("Unknown Format: " + format);
         }
-    }
+    }*/
 
 }
